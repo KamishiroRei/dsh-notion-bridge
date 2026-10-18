@@ -1,0 +1,16 @@
+- insert:
+    - id: dsh-notion-bridge
+      name: dsh-notion-bridge
+      config:
+        port: 18748
+        publicUrl: http://127.0.0.1:18748
+        workspaces:
+          harness: !!js process.cwd()
+        permissionPreset: workspace-write
+        provider: deepseek-official
+        model: deepseek-flash
+        maxTasks: 64
+        maxConcurrentTasks: 2
+        maxResultChars: 24000
+        taskTimeoutMs: 1200000
+        stateDirectory: !!js process.getBuiltinModule('node:path').join(process.env.DSH_HOME ?? process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:os').homedir(), '.dsh'), 'dsh-notion-bridge')
